@@ -53,7 +53,7 @@ public class URLManager {
                 +".html";
     }
     public static String getUrl(String channelId,int pageNo){
-        int pageSize=10;
+        int pageSize=20;
         int offset=(pageNo-1)*pageSize;
         return "http://c.m.163.com/nc/article/headline/"+"/"+channelId+"/"+offset+"-"+pageSize
                 +".html";

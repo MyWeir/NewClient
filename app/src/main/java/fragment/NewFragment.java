@@ -83,8 +83,11 @@ public class NewFragment extends  BaseFragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                NewEntity.ResultBean newBean= (NewEntity.ResultBean) parent.getItemAtPosition(position);
-                position--;
-                NewEntity.ResultBean newBean=listDatas.get(position);
+                int index=position;
+                if(listView.getHeaderViewsCount()>0){
+                    index=index-1;
+                }
+                NewEntity.ResultBean newBean=listDatas.get(index);
                 Intent intent=new Intent(getActivity(), NewDetailActivity.class);
                 intent.putExtra("news",newBean);
                 startActivity(intent);
@@ -136,25 +139,25 @@ public class NewFragment extends  BaseFragment{
       }
 
     private void showData(List<NewEntity.ResultBean> listDatas) {
-      if(listView.getHeaderViewsCount()>0){
-          listView.removeHeaderView(headerView);
-      }
-       NewEntity.ResultBean firstNews=listDatas.get(0);
-        if(firstNews.getAds()!=null&&firstNews.getAds().size()>0){
-            headerView= LayoutInflater.from(getContext()).inflate(R.layout.list_header, listView,false);
-            SliderLayout sliderLayout= (SliderLayout) headerView.findViewById(R.id.slider_layout);
-            List<NewEntity.ResultBean.AdsBean> ads=firstNews.getAds();
-            for(int i=0;i<ads.size();i++){
-                NewEntity.ResultBean.AdsBean adBean=ads.get(i);
-                TextSliderView textSliderView=new TextSliderView(getContext());
+        if (listView.getHeaderViewsCount() > 0) {
+            listView.removeHeaderView(headerView);
+        }
+        NewEntity.ResultBean firstNews = listDatas.get(0);
+        if (firstNews.getAds() != null && firstNews.getAds().size() > 0) {
+            headerView = LayoutInflater.from(getContext()).inflate(R.layout.list_header, listView, false);
+            SliderLayout sliderLayout = (SliderLayout) headerView.findViewById(R.id.slider_layout);
+            List<NewEntity.ResultBean.AdsBean> ads = firstNews.getAds();
+            for (int i = 0; i < ads.size(); i++) {
+                NewEntity.ResultBean.AdsBean adBean = ads.get(i);
+                TextSliderView textSliderView = new TextSliderView(getContext());
 
                 textSliderView.description(adBean.getTitle()).image(adBean.getImgsrc());
                 sliderLayout.addSlider(textSliderView);
             }
             listView.addHeaderView(headerView);
-        }else {
+        } else {
 
         }
-              newAdapter.setDatas(listDatas);
+        newAdapter.setDatas(listDatas);
     }
 }

@@ -31,7 +31,7 @@ public class NewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return (listDatas == null) ? 0 : listDatas.size()-1;
+        return (listDatas == null) ? 0 : listDatas.size();
     }
 
     @Override

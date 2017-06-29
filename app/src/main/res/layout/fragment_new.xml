@@ -26,6 +26,6 @@
     android:layout_height="match_parent">
 
     </ListView>
+    </com.liaoinstan.springview.widget.SpringView>
 
-</com.liaoinstan.springview.widget.SpringView>
 </LinearLayout>

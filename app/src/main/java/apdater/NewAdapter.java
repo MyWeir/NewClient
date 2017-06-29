@@ -24,14 +24,14 @@ public class NewAdapter extends BaseAdapter {
     private static final int ITEM_TYPE_WITH_1_IMAGE = 0;
     private static final int ITEM_TYPE_WITH_3_IMAGE = 1;
 
-    public NewAdapter(Context context, List<NewEntity.ResultBean> listDatas) {
+    public NewAdapter(List<NewEntity.ResultBean> listDatas,Context context) {
         this.context = context;
         this.listDatas = listDatas;
     }
 
     @Override
     public int getCount() {
-        return (listDatas == null) ? 0 : listDatas.size();
+        return (listDatas == null) ? 0 : listDatas.size()-1;
     }
 
     @Override
@@ -99,5 +99,15 @@ public class NewAdapter extends BaseAdapter {
     }
     public int getViewTypeCount(){
         return 2;
+    }
+
+    public void appendDatas(List<NewEntity.ResultBean> listDatas) {
+        this.listDatas=listDatas;
+        notifyDataSetChanged();
+    }
+
+    public void setDatas(List<NewEntity.ResultBean> listDatas) {
+        this.listDatas=listDatas;
+        notifyDataSetChanged();
     }
 }

@@ -47,9 +47,9 @@ public class NewDetailActivity extends BaseActivity {
     @Override
     public void initData() {
         NewEntity.ResultBean newBean= (NewEntity.ResultBean) getIntent().getSerializableExtra("news");
-        wedView.loadUrl(newBean.getUrl());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(newBean.getTitle());
+        String newUrl=newBean.getUrl();
+        wedView.loadUrl(newUrl);
+
     }
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId()==android.R.id.home){

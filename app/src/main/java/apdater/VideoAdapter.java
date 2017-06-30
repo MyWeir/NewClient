@@ -40,9 +40,9 @@ public class VideoAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         MyViewHolder holder = (MyViewHolder) viewHolder;
         // 列表项对应的数据
-       final  VideoEntity.ResultBean video = listDatas.get(position);
+       VideoEntity.ResultBean video = listDatas.get(position);
        // 显示标题
-        holder.tvVideoTitle.setText(listDatas.get(position).getTitle());
+        holder.tvVideoTitle.setText(video.getTitle());
         // 显示视频播放时长
         System.out.println("-----duration: " + video.getLength());
         String durationStr = DateFormat.format("mm:ss", video.getLength() * 1000).toString();

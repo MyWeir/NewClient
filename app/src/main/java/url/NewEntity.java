@@ -57,6 +57,7 @@ public class NewEntity {
          * specialID : S1497403767137
          */
 
+
         private String postid;
         private boolean hasCover;
         private int hasHead;

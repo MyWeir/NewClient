@@ -28,7 +28,7 @@ public class URLManager {
     // http://c.m.163.com/nc/article/headline/T1348654060988/0-20.html
 
     // 支持的一些新闻类别类别id如下：
-    public final String[] channelId = new String[] {
+    public final String[] channelId = new String[]{
             "T1348647909107",   // 头条
             "T1348648037603",   // 社会
             "T1348649580692",   // 科技
@@ -39,6 +39,7 @@ public class URLManager {
 
     /**
      * 获取一页新闻数据
+     *
      * @param channelId 新闻类别id
      * @return
      */
@@ -47,20 +48,25 @@ public class URLManager {
         return "http://c.m.163.com/nc/article/headline/" + channelId + "/0-20.html";
     }
 
-    public static String getUrl(String channelId,int pageNo,int pageSize){
-      int offset=(pageNo-1)*pageSize;
-        return "http://c.m.163.com/nc/article/headline/"+channelId+"/"+offset+"-"+pageSize
-                +".html";
+    public static String getUrl(String channelId, int pageNo, int pageSize) {
+        int offset = (pageNo - 1) * pageSize;
+        return "http://c.m.163.com/nc/article/headline/" + channelId + "/" + offset + "-" + pageSize
+                + ".html";
     }
-    public static String getUrl(String channelId,int pageNo){
-        int pageSize=20;
-        int offset=(pageNo-1)*pageSize;
-        return "http://c.m.163.com/nc/article/headline/"+"/"+channelId+"/"+offset+"-"+pageSize
-                +".html";
+
+    public static String getUrl(String channelId, int pageNo) {
+        int pageSize = 20;
+        int offset = (pageNo - 1) * pageSize;
+        return "http://c.m.163.com/nc/article/headline/" + "/" + channelId + "/" + offset + "-" + pageSize
+                + ".html";
     }
 
     // 视频url路径
     public static final String VideoURL = //
             "http://c.m.163.com/nc/video/list/V9LG4B3A0/y/0-20.html";
+
+    public static final String JokeURL = //
+            "http://v.juhe.cn/toutiao/index?type=xiaohua&key=e409ea501ee69cda248b6bcb8fa21536/0-20.html";
+
 }
 
